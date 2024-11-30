@@ -4,9 +4,16 @@ A vault of secrets, a treasure untold, Configurations gathered, both new and old
 
 ## Properties for deployment
 
-| name                   | required | info                    |
-|------------------------|----------|-------------------------|
-| spring.profiles.active | *        | Spring Boot environment |
+| name                       | required | info                    |
+|----------------------------|----------|-------------------------|
+| spring.profiles.active     | *        | Spring Boot environment |
+| cassandra.keyspace-name    |          |                         |
+| cassandra.port             |          |                         |
+| cassandra.schema-action    |          |                         |
+| cassandra.local-datacenter |          |                         |
+| cassandra.contact-points   | *        |                         |
+| cassandra.username         | *        |                         |
+| cassandra.password         | **       |                         |
 
 Required: * can be stored as text, and ** need to be stored as secret.  
 

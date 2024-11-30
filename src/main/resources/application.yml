@@ -10,6 +10,12 @@ spring:
         name: "%APP_BUILD_OS_NAME%"
         version: "%APP_BUILD_OS_VERSION%"
 
+  cassandra:
+    keyspace-name: device_configuration
+    port: 9042
+    schema-action: none
+    local-datacenter: datacenter1
+
 ---
 ###############################
 ### Development environment ###
@@ -19,6 +25,11 @@ spring:
     activate:
       on-profile: development
 
+  cassandra:
+    contact-points: localhost
+    username: cassandra
+    password: password
+
 ---
 ##########################
 ### Docker environment ###
@@ -27,6 +38,11 @@ spring:
   config:
     activate:
       on-profile: docker
+
+  cassandra:
+    contact-points: cassandra
+    username: cassandra
+    password: password
 
 ---
 ##############################
