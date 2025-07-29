@@ -19,7 +19,7 @@ Required: * can be stored as text, and ** need to be stored as secret.
 
 ## Releasing Service
 
-Run `release.sh` script from `master` branch.
+Run release pipeline from `master` branch.
 
 ## Development
 
