@@ -16,6 +16,20 @@ spring:
     schema-action: none
     local-datacenter: datacenter1
 
+management:
+  endpoints:
+    access:
+      default: none
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: always
+      access: read_only
+    info:
+      access: read_only
+
 ---
 ###############################
 ### Development environment ###
