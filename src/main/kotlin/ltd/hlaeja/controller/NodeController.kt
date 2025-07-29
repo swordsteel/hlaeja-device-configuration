@@ -1,11 +1,11 @@
 package ltd.hlaeja.controller
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import java.util.UUID
 import ltd.hlaeja.library.deviceConfiguration.Node
 import ltd.hlaeja.service.NodeService
 import ltd.hlaeja.util.toEntity
 import ltd.hlaeja.util.toResponse
-import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
@@ -25,7 +25,7 @@ class NodeController(
         @PathVariable node: UUID,
     ): Mono<Node.Response> = service.getConfiguration(node)
         .map { it.toResponse() }
-        .also { log.debug("Endpoint getNodeConfiguration for node: {}", node) }
+        .also { log.debug { "Endpoint getNodeConfiguration for node: $node" } }
 
     @PutMapping("/node-{node}")
     fun updateNodeConfiguration(
@@ -33,5 +33,5 @@ class NodeController(
         @RequestBody nodeRequest: Node.Request,
     ): Mono<Node.Response> = service.updateDevice(nodeRequest.toEntity(node))
         .map { it.toResponse() }
-        .also { log.debug("Endpoint updateNodeConfiguration for node: {}", node) }
+        .also { log.debug { "Endpoint updateNodeConfiguration for node: $node" } }
 }
